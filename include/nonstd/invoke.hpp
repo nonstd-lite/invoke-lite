@@ -26,13 +26,11 @@
 
 // tweak header support:
 
-#ifdef __has_include
-# if __has_include(<nonstd/invoke.tweak.hpp>)
-#  include <nonstd/invoke.tweak.hpp>
-# endif
-#define invoke_HAVE_TWEAK_HEADER  1
+#if defined(__has_include) && __has_include(<nonstd/invoke.tweak.hpp>)
+# include <nonstd/invoke.tweak.hpp>
+# define invoke_HAVE_TWEAK_HEADER  1
 #else
-#define invoke_HAVE_TWEAK_HEADER  0
+# define invoke_HAVE_TWEAK_HEADER  0
 //# pragma message("invoke.hpp: Note: Tweak header not supported.")
 #endif
 
